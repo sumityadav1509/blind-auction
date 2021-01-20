@@ -1,4 +1,5 @@
 def is_leap(year):
+  """This function is created to check the conditions if a given year is leap or not . """
   if year%4==0:
     if year%100==0:
       if year%400==0:
@@ -16,6 +17,7 @@ def is_leap(year):
 
 
 def day_in_month(year,month):
+  """This function is created to calculate the number of days in february and provide a return value as a output from the function"""
   if month>12 or month<1:
     return "Invalid Input"
   
