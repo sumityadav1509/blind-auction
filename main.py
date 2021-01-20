@@ -16,7 +16,7 @@ def format_name(f_name,l_name):
 
 formated_string=format_name("sumit","SUmiT")
   
-print(formated_string)
+print(formated_string) 
 
 
 # format_name("sumit","SUMIT")
