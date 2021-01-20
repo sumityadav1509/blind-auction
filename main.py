@@ -1,42 +1,46 @@
-def my_function():
- return 3*2
+# Calculator 
+
+# Add
+def add(n1,n2):
+  return (n1+n2)  
+
+# Subtract 
+def subtract(n1,n2):
+  return (n1-n2) 
+
+#Multiplication
+def multiply(n1,n2):
+  return(n1*n2) 
+
+# Division
+def division(n1,n2):
+  return(n1/n2)
 
 
-output=my_function()
 
-print(output) 
-
-
-# Functions with outputs:
-def format_name(f_name,l_name):
-  f_capital=f_name.title()
-  l_capital=l_name.title() 
-
-  return (f"{f_capital} {l_capital}") 
-  
+operations={
+  "+":add,
+  "-":subtract,
+  "*":multiply,
+  "/":division
 
 
-formated_string=format_name("sumit","SUmiT")
-# used .title() function for re-arranging strings 
-print(formated_string) 
+} 
+num1=int(input("What's the first number?: "))
+num2=int(input("What's the second number?:")) 
 
-# using multiple return values:
+# function=operations["+"]
+# print(function) 
+for symbol in operations:
+  print(symbol)
 
-def format_name(f_name,l_name):
-  
-  if f_name=="" or l_name=="": 
-    return
-  
-  
-  f_capital=f_name.title()
-  l_capital=l_name.title() 
+operation_symbol=input("Pick an operation from the line above: ") 
+calculation_function=operations[operation_symbol] 
+first_answer= calculation_function(num1,num2) 
 
-  return (f"{f_capital} {l_capital}") 
-  
-
-
-formated_string=format_name(input("Waht is your first name ?"),input("What is your last name? "))
-# used .title() function for re-arranging strings 
-print(formated_string) 
-
-
+print(f"{num1}{operation_symbol}{num2}={first_answer}")
+operation_symbol=input("Pick another operation: ")
+num3= int(input("What's the next number ? "))
+calculation_function=operations[operation_symbol]
+second_answer=calculation_function(calculation_function(num1,num2) ,num3) 
+print(f"{first_answer}{operation_symbol}{num3}={second_answer}")
