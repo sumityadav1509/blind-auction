@@ -1,42 +1,32 @@
-def my_function():
- return 3*2
+def is_leap(year):
+  if year%4==0:
+    if year%100==0:
+      if year%400==0:
+        # print("Leap Year")
+        return True
+      else:
+        # print("Not Leap Year")
+        return False
+    else:
+      # print("Leap Year")
+      return True
+  else:
+    # print("Not Leap Year")
+     return False
 
 
-output=my_function()
-
-print(output) 
-
-
-# Functions with outputs:
-def format_name(f_name,l_name):
-  f_capital=f_name.title()
-  l_capital=l_name.title() 
-
-  return (f"{f_capital} {l_capital}") 
+def day_in_month(year,month):
+  if month>12 or month<1:
+    return "Invalid Input"
   
+  month_days=[31,28,31,30,31,30,31,31,30,31,30,31] 
+  if is_leap(year) and month==2:
+    return 29 
+  return month_days[month-1]  
 
 
-formated_string=format_name("sumit","SUmiT")
-# used .title() function for re-arranging strings 
-print(formated_string) 
+year=int(input("Enter a year: "))
+month=int(input("Enter a month: ")) 
 
-# using multiple return values:
-
-def format_name(f_name,l_name):
-  
-  if f_name=="" or l_name=="": 
-    return
-  
-  
-  f_capital=f_name.title()
-  l_capital=l_name.title() 
-
-  return (f"{f_capital} {l_capital}") 
-  
-
-
-formated_string=format_name(input("Waht is your first name ?"),input("What is your last name? "))
-# used .title() function for re-arranging strings 
-print(formated_string) 
-
-
+days=day_in_month(year,month) 
+print(days)
