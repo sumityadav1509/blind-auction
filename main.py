@@ -26,26 +26,34 @@ operations={
 
 
 } 
-num1=int(input("What's the first number?: "))
- 
 
-# function=operations["+"]
-# print(function) 
-for symbol in operations:
-  print(symbol)
-should_continue=True 
+def calculator():
+  num1=float(input("What's the first number?: "))
+  
 
-while should_continue:
+  # function=operations["+"]
+  # print(function) 
+  for symbol in operations:
+    print(symbol)
+  should_continue=True 
 
-  operation_symbol=input("Pick an operation from the line above: ") 
-  num2=int(input("What's the second number?:")) 
-  calculation_function=operations[operation_symbol] 
-  answer= int(calculation_function(num1,num2) )
+  while should_continue:
 
-  print(f"{num1}{operation_symbol}{num2}={answer}")
+    operation_symbol=input("Pick an operation from the line above: ") 
+    num2=float(input("What's the second number?:")) 
+    calculation_function=operations[operation_symbol] 
+    answer= int(calculation_function(num1,num2) )
 
-  if input(f"Type 'y' to continue calculating with {answer} , or type 'n' to exit : ")=="y":
-    num1=answer 
-  else:
-    should_continue=False 
-    
+    print(f"{num1}{operation_symbol}{num2}={answer}")
+
+    if input(f"Type 'y' to continue calculating with {answer} , or type 'n' to exit : ")=="y":
+      num1=answer 
+    else:
+      should_continue=False 
+      calculator()
+
+
+
+calculator()
+
+
